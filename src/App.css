@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f6f8fb;
+}
+
+.container {
+  width: min(1040px, 100% - 2rem);
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  background: #101828;
+  color: #f8fafc;
+}
+
+.header-inner,
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand-link {
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.page-wrap {
+  width: min(1040px, 100% - 2rem);
+  margin: 1.5rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.hero-card p {
+  max-width: 70ch;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 0.5rem;
+  color: #111827;
+}
+
+h2 {
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  margin: 0 0 0.5rem;
+  color: #1f2937;
+}
+
+p,
+li,
+label,
+summary,
+a,
+input {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.links-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.links-grid a {
+  display: block;
+  text-decoration: none;
+  color: #0f2d84;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  background: #f9fafb;
+}
+
+.links-grid a:hover,
+.links-grid a:focus-visible {
+  outline: none;
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.tool-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.calculator-box {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.field-label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+input {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+}
+
+input:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+}
+
+.result-box {
+  border: 1px dashed #93c5fd;
+  border-radius: 8px;
+  background: #f8fbff;
+  padding: 0.75rem;
+}
+
+.result-box ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.error-text {
+  color: #b91c1c;
+  font-weight: 600;
+  margin: 0;
+}
+
+ol,
+ul {
+  margin: 0;
+}
+
+details {
+  border-top: 1px solid #e5e7eb;
+  padding: 0.45rem 0;
+}
+
+details:last-child {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .header-inner,
+  .footer-inner {
+    min-height: auto;
+    padding: 0.75rem 0;
+  }
+}
