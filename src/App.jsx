@@ -31,11 +31,13 @@ import {
 function App() {
   return (
     <div className="app-shell">
+      <div className="app-loader" aria-hidden="true" />
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand-link" to="/">
             Fera Calculator
           </Link>
+          <span className="header-note">Modern tools • Instant results</span>
         </div>
       </header>
 
@@ -71,7 +73,7 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <span>Fera Calculator</span>
-          <span>© 2026 Fera Calculator</span>
+          <span>© 2026 Fera Calculator • Built for everyday decisions</span>
         </div>
       </footer>
     </div>
