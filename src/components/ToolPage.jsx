@@ -13,11 +13,17 @@ export default function ToolPage({ tool }) {
   const [values, setValues] = useState(() =>
     tool.fields.reduce((acc, field) => ({ ...acc, [field.key]: field.defaultValue ?? '' }), {}),
   )
+  const [resultPulse, setResultPulse] = useState(false)
 
   const result = useMemo(() => tool.calculate(values), [tool, values])
 
   const onChange = (key, value) => {
     setValues((current) => ({ ...current, [key]: value }))
+  }
+
+  const onCalculate = () => {
+    setResultPulse(true)
+    window.setTimeout(() => setResultPulse(false), 300)
   }
 
   return (
@@ -42,7 +48,10 @@ export default function ToolPage({ tool }) {
               />
             </label>
           ))}
-          <div className="result-box" role="status" aria-live="polite">
+          <button type="button" onClick={onCalculate}>
+            Calculate
+          </button>
+          <div className={`result-box${resultPulse ? ' is-highlighted' : ''}`} role="status" aria-live="polite">
             {result.error ? (
               <p className="error-text">{result.error}</p>
             ) : (

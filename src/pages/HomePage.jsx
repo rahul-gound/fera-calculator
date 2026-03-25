@@ -2,36 +2,57 @@ import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import { categories, tools } from '../data/tools'
 
+const categoryIcons = {
+  'Finance Calculators': '📈',
+  'Student Tools': '🎓',
+  Converters: '🔁',
+  'Daily Tools': '🗓️',
+}
+
 export default function HomePage() {
   return (
-    <main className="page-wrap">
+    <main className="page-wrap home-page">
       <Seo
-        title="Fera Calculator (2026) – Free Online Calculators"
-        description="Fera Calculator offers fast, mobile-friendly finance, student, converter, and daily calculators with instant results, examples, FAQs, and clean UI."
+        title="Fera Calculator (2026) – Smart Calculators for Everyday Use"
+        description="Fera Calculator offers fast, modern finance, student, converter, and daily calculators with instant calculation, examples, FAQs, and related tools."
       />
-      <section className="card hero-card">
-        <h1>Fera Calculator</h1>
-        <h2>Fast, simple, and SEO-friendly calculators for daily use</h2>
+
+      <section className="card hero-card" id="top">
+        <p className="hero-kicker">Modern Calculator Suite</p>
+        <h1>Smart Calculators for Everyday Use</h1>
         <p>
-          Explore 24 free tools across finance, student studies, unit conversion, and daily planning.
-          Every tool includes examples, FAQs, and instant input-based results.
+          Build faster decisions with beautifully designed calculators. Fera Calculator gives you instant
+          results, practical examples, and easy-to-follow inputs across finance, student, conversion, and
+          daily scenarios.
         </p>
+        <a className="gradient-button hero-cta" href="#tool-categories">
+          Explore Calculators
+        </a>
       </section>
 
-      {categories.map((category) => (
-        <section className="card" key={category}>
-          <h2>{category}</h2>
-          <ul className="links-grid">
-            {tools
-              .filter((tool) => tool.category === category)
-              .map((tool) => (
-                <li key={tool.path}>
-                  <Link to={tool.path}>{tool.name}</Link>
-                </li>
-              ))}
-          </ul>
-        </section>
-      ))}
+      <section className="cards-grid" id="tool-categories" aria-label="Calculator categories">
+        {categories.map((category) => {
+          const categoryTools = tools.filter((tool) => tool.category === category)
+          return (
+            <article className="card category-card" key={category}>
+              <div className="category-title-wrap">
+                <span className="card-icon" aria-hidden="true">
+                  {categoryIcons[category] ?? '✨'}
+                </span>
+                <h2>{category}</h2>
+              </div>
+              <p>{categoryTools.length} calculators available</p>
+              <ul className="links-grid">
+                {categoryTools.map((tool) => (
+                  <li key={tool.path}>
+                    <Link to={tool.path}>{tool.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          )
+        })}
+      </section>
     </main>
   )
 }
